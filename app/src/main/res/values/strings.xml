@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PlanZajec</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_daily_college_schedule">Your daily  college schedule</string>
+    <string name="context_menu_options"><![CDATA[Context & menu options]]></string>
+    <string name="wydzial">Wydział</string>
+    <string name="kierunek_studiow">Kierunek</string>
+    <string name="semestr">Semestr</string>
+    <string name="grupa_dziekanska">Grupa dziekańska</string>
+    <string name="dodaj_plan">Dodaj plan</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
