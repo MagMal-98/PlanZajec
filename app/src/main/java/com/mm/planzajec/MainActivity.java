@@ -57,26 +57,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.nav_message:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new MessageFragment()).commit();
+                intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_chat:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ChatFragment()).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                        new ChatFragment()).commit();
+                intent = new Intent(MainActivity.this, ChangeScheduleActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ProfileFragment()).commit();
+                intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_exams:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new CalendarExamsFragment()).commit();
+                intent = new Intent(MainActivity.this, ExamsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_notes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new NotesFragment()).commit();
+                intent = new Intent(MainActivity.this, NotesActivity.class);
+                startActivity(intent);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                        new NotesFragment()).commit();
                 break;
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
