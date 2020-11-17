@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddEditExamActivity"></activity>
+        <activity android:name=".AlarmActivityExam"
+            android:theme="@style/AlertTheme"/>
         <activity
             android:name=".AddEditNoteActivity"
             android:parentActivityName=".NotesActivity" />
@@ -24,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".AlarmReceiverExam" />
     </application>
 
 </manifest>
