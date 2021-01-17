@@ -1,19 +1,5 @@
 package com.mm.planzajec;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -28,6 +14,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -58,12 +58,6 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new MessageFragment()).commit();
-//            navigationView.setCheckedItem(R.id.nav_message);
-        //}
 
         FloatingActionButton buttonAddExam = findViewById(R.id.button_add_exam);
         buttonAddExam.setOnClickListener(new View.OnClickListener() {
@@ -123,9 +117,9 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
                 Intent intent = new Intent(getApplicationContext(), AlarmReceiverExam.class);
                 Exam examAt = adapter.getExamAt(viewHolder.getAdapterPosition());
                 intent.putExtra("notificationId", examAt.getExam_id());
-                intent.putExtra("message",  examAt.getExam_title());
-                intent.putExtra("date",  examAt.getExam_date());
-                intent.putExtra("hour",  examAt.getExam_time());
+                intent.putExtra("message", examAt.getExam_title());
+                intent.putExtra("date", examAt.getExam_date());
+                intent.putExtra("hour", examAt.getExam_time());
                 intent.putExtra("id", examAt.getExam_notification_id());
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), examAt.getExam_notification_id(), intent, 0);
                 alarmManager.cancel(pendingIntent);
@@ -152,32 +146,22 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_message:
+            case R.id.nav_schedule:
                 intent = new Intent(ExamsActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_chat:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                        new ChatFragment()).commit();
+            case R.id.nav_change_schedule:
                 intent = new Intent(ExamsActivity.this, ChangeScheduleActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_profile:
-                intent = new Intent(ExamsActivity.this, NotificationsActivity.class);
-                startActivity(intent);
-                break;
             case R.id.nav_exams:
-                intent = new Intent(ExamsActivity.this, ExamsActivity.class);
-                startActivity(intent);
+                onBackPressed();
                 break;
             case R.id.nav_notes:
                 intent = new Intent(ExamsActivity.this, NotesActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_send:
+            case R.id.nav_personalize:
                 Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -245,7 +229,8 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
         menuInflater.inflate(R.menu.main_menu_exams, menu);
         return true;
     }
-    public void createChannel(){
+
+    public void createChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // For API 26 and above
             CharSequence channelName = "ePlan Notification";
@@ -256,6 +241,7 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
             notificationManager.createNotificationChannel(channel);
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

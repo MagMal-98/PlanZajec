@@ -1,64 +1,94 @@
 package com.mm.planzajec;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DayOfWeekFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
 public class DayOfWeekFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public DayOfWeekFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DayOfWeekFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DayOfWeekFragment newInstance(String param1, String param2) {
-        DayOfWeekFragment fragment = new DayOfWeekFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private ArrayList<PlanItem> arrayList;
+    String hour;
+    String supervisor;
+    String room;
+    String name;
+    int weekDay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_day_of_week, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_day_of_week, container, false);
+        if (getActivity() instanceof MainActivity) {
+            MainActivity activity = (MainActivity) getActivity();
+            Context applicationContext = activity.getApplicationContext();
+            Bundle bundle = this.getArguments();
+            SharedPreferences preference = applicationContext.getSharedPreferences("PREFERENCE", applicationContext.MODE_PRIVATE);
+
+            ReadJson read = activity.getReadJson();
+
+            recyclerView = v.findViewById(R.id.recycler_view_plan);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+            if (bundle != null) {
+                String adapter = bundle.getString("adapter");
+                String supervisor = bundle.getString("supervisor");
+                String room = bundle.getString("room");
+                String course = bundle.getString("course");
+                if (supervisor != null) {
+                    Integer day = Integer.valueOf(adapter) + 1;
+                    mAdapter = new PlanAdapter(read.getSupervisorPlan(day, supervisor));
+                } else if (room != null) {
+                    Integer day = Integer.valueOf(adapter) + 1;
+                    mAdapter = new PlanAdapter(read.getRoomPlan(day, room));
+                } else if (course != null) {
+                    Integer day = Integer.valueOf(adapter) + 1;
+                    mAdapter = new PlanAdapter(read.getCoursePlan(day, course));
+                } else {
+                    String group = preference.getString("group", "0");
+                    String subgroup = preference.getString("subgroup", "0");
+                    Integer day = Integer.valueOf(adapter) + 1;
+                    arrayList = read.restoreFromJson(day, group, subgroup);
+                    mAdapter = new PlanAdapter(arrayList);
+                }
+                recyclerView.setAdapter(mAdapter);
+            }
+        }
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                        if (position != RecyclerView.NO_POSITION) {
+                            hour = arrayList.get(position).getHour();
+                            supervisor = arrayList.get(position).getSupervisor();
+                            room = arrayList.get(position).getRoom();
+                            name = arrayList.get(position).getName();
+                            weekDay = arrayList.get(position).getDay();
+                        }
+
+                        Intent intent;
+                        intent = new Intent(getContext(), PlanItemOptionsActivity.class);
+                        intent.putExtra("courseName", name);
+                        intent.putExtra("supervisor", supervisor);
+                        intent.putExtra("room", room);
+                        intent.putExtra("hour", hour);
+                        intent.putExtra("weekDay", weekDay);
+                        startActivity(intent);
+                    }
+                })
+        );
+        return v;
     }
 }

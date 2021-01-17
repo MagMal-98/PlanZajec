@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Jan 12, 1952"
+            android:text="@string/note_date_example"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             />
 
@@ -28,7 +28,7 @@
             android:layout_toStartOf="@id/text_view_date_note"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Title"
+            android:text="@string/note_title_example"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:layout_below="@id/text_view_title_note"
-            android:text="Description" />
+            android:text="@string/note_description_example" />
 
     </RelativeLayout>
 

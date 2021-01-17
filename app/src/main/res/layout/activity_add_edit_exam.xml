@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:clickable="true"
-    android:focusableInTouchMode="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".AddEditExamActivity"
-    android:focusable="true">
+    tools:context=".AddEditExamActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_exams"
@@ -24,19 +24,17 @@
         android:id="@+id/edit_text_exam_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter title"
-        android:padding="16dp"
-        />
+        android:hint="@string/enter_title"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/text_view_exam_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:hint="Set Date"
-        android:textSize="20sp"
+        android:hint="@string/set_date_exam"
         android:textAlignment="center"
-        />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button_exam_date"
@@ -46,17 +44,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="get date" />
+        android:text="@string/get_date_exam" />
 
     <TextView
         android:id="@+id/text_view_exam_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:hint="Set Time"
+        android:hint="@string/set_time_exam"
         android:textAlignment="center"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button_exam_time"
@@ -65,6 +62,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="get time" />
+        android:text="@string/get_time_exam" />
 
 </LinearLayout>

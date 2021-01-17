@@ -1,16 +1,16 @@
 package com.mm.planzajec;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,31 +34,18 @@ public class ChangeScheduleActivity extends AppCompatActivity implements Navigat
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new MessageFragment()).commit();
-//            navigationView.setCheckedItem(R.id.nav_message);
-        //}
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_message:
+            case R.id.nav_schedule:
                 intent = new Intent(ChangeScheduleActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_chat:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                        new ChatFragment()).commit();
-                intent = new Intent(ChangeScheduleActivity.this, ChangeScheduleActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_profile:
-                intent = new Intent(ChangeScheduleActivity.this, NotificationsActivity.class);
-                startActivity(intent);
+            case R.id.nav_change_schedule:
+                onBackPressed();
                 break;
             case R.id.nav_exams:
                 intent = new Intent(ChangeScheduleActivity.this, ExamsActivity.class);
@@ -68,10 +55,7 @@ public class ChangeScheduleActivity extends AppCompatActivity implements Navigat
                 intent = new Intent(ChangeScheduleActivity.this, NotesActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_send:
+            case R.id.nav_personalize:
                 Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
                 break;
         }

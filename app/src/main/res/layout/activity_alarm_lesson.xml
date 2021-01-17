@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmActivityExam">
+    tools:context=".AlarmActivityLesson">
 
     <TextView
-        android:id="@+id/textView_hour"
+        android:id="@+id/textViewHourSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -19,7 +19,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_date"
+        android:id="@+id/textViewLessonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHourSchedule"
+        tools:ignore="TextViewEdits" />
+
+    <TextView
+        android:id="@+id/textViewRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -28,17 +42,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_hour" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLessonName" />
 
     <TextView
-        android:id="@+id/textView_message"
+        android:id="@+id/textViewSupervisor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/colorWhite"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_date" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRoom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

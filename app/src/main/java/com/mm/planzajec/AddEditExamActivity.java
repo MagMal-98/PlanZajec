@@ -1,8 +1,5 @@
 package com.mm.planzajec;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -25,6 +22,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -109,31 +109,19 @@ public class AddEditExamActivity extends AppCompatActivity {
     }
 
 
-    private void saveNote(){
+    private void saveNote() {
         String exam_title = editTextExamTitle.getText().toString();
         String exam_date = textViewExamDate.getText().toString();
         String exam_time = textViewExamTime.getText().toString();
-        long alarmStartTime;
-        long alarmStartTime_edit;
 
-        if(!exam_date.isEmpty() && !exam_time.isEmpty() && savedDate == null){
+        if (!exam_date.isEmpty() && !exam_time.isEmpty() && savedDate == null) {
             String edit = exam_date + " " + exam_time;
-//            editDate = stringToDate(exam_date, "d MMM yyyy");
-//            editDate = stringToDate(exam_time, "HH:mm");
             editDate = stringToDate(edit, "d MMM yyyy HH:mm");
-            //alarmStartTime_edit = editDate.getTime() + editTime.getTime();
         }
         if (savedDate == null && editDate == null) {
             Toast.makeText(this, "Please insert a date and time", Toast.LENGTH_SHORT).show();
             return;
         }
-//        else {
-//            if(savedDate == null){
-//                alarmStartTime_edit = editDate.getTime();
-//            } else{
-//                alarmStartTime = savedDate.getTime();
-//            }
-//        }
         if (exam_title.trim().isEmpty() && savedDate == null && editDate == null) {
             Toast.makeText(this, "Please insert a title, date and time", Toast.LENGTH_SHORT).show();
             return;
@@ -151,42 +139,23 @@ public class AddEditExamActivity extends AppCompatActivity {
             return;
         }
 
-        //Intent intent1 = getIntent();
-        //int id = intent1.getIntExtra(EXTRA_EXAM_ID, -1);
         Intent data = new Intent();
         int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
         data.putExtra(EXTRA_EXAM_TITLE, exam_title);
         data.putExtra(EXTRA_EXAM_DATE, exam_date);
         data.putExtra(EXTRA_EXAM_TIME, exam_time);
-        if(editDate == null){
+        if (editDate == null) {
             data.putExtra(EXTRA_EXAM_TIME_TO_NOTIFY, savedDate.getTime());
             data.putExtra(EXTRA_EXAM_ID, m);
             data.putExtra(EXTRA_EXAM_NOTIFICATION_ID, m);
         } else {
             data.putExtra(EXTRA_EXAM_TIME_TO_NOTIFY, editDate.getTime());
             data.putExtra(EXTRA_EXAM_ID, edit_id);
-            //data.putExtra(String.valueOf(data.getIntExtra(EXTRA_EXAM_ID, 13)), id);
             data.putExtra(EXTRA_EXAM_NOTIFICATION_ID, edit_notification_id);
         }
 
-//        if (editDate == null) {
-////            //if (id != -1) {
-////            data.putExtra(EXTRA_EXAM_ID, id);
-////
-////        }
-////        else{
-//            data.putExtra(EXTRA_EXAM_ID, m);
-//            data.putExtra(EXTRA_EXAM_NOTIFICATION_ID, m);
-//        }
-//        else{
-//            data.putExtra(String.valueOf(data.getIntExtra(EXTRA_EXAM_ID, -1)), id);
-//            data.putExtra(String.valueOf(data.getIntExtra(EXTRA_EXAM_NOTIFICATION_ID, -1)), m);
-//        }
-
         setResult(RESULT_OK, data);
 
-        //int a;
-        //int s = data.getIntExtra(EXTRA_EXAM_ID, -1);
         int a = data.getIntExtra(EXTRA_EXAM_NOTIFICATION_ID, -1);
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
 
@@ -204,14 +173,14 @@ public class AddEditExamActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.add_note_exam_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_note_exam:
                 saveNote();
@@ -220,6 +189,7 @@ public class AddEditExamActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     Calendar calendar1;
     Calendar calendar2;
     Date savedDate;
@@ -228,7 +198,7 @@ public class AddEditExamActivity extends AppCompatActivity {
     int edit_notification_id;
     boolean edit_flag = false;
 
-    private void handleDateButton(){
+    private void handleDateButton() {
         final Calendar calendar = Calendar.getInstance();
         int YEAR = calendar.get(Calendar.YEAR);
         int MONTH = calendar.get(Calendar.MONTH);
@@ -243,15 +213,14 @@ public class AddEditExamActivity extends AppCompatActivity {
                 calendar1.set(Calendar.MONTH, month);
                 calendar1.set(Calendar.DAY_OF_MONTH, date);
 
-                if (calendar2 != null){
+                if (calendar2 != null) {
                     calendar1.set(Calendar.HOUR_OF_DAY, calendar2.get(Calendar.HOUR_OF_DAY));
                     calendar1.set(Calendar.MINUTE, calendar2.get(Calendar.MINUTE));
                 }
 
-                if(edit_flag){
+                if (edit_flag) {
                     editDate = calendar1.getTime();
-                }
-                else{
+                } else {
                     savedDate = calendar1.getTime();
                 }
                 String dateText = DateFormat.format("d MMM yyyy", calendar1).toString();
@@ -266,7 +235,7 @@ public class AddEditExamActivity extends AppCompatActivity {
 
     }
 
-    private void handleTimeButton(){
+    private void handleTimeButton() {
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -276,7 +245,7 @@ public class AddEditExamActivity extends AppCompatActivity {
                 MINUTE = minute;
                 String time = HOUR + ":" + MINUTE;
 
-                if(calendar1 == null) {
+                if (calendar1 == null) {
                     calendar2 = Calendar.getInstance();
                     calendar2.set(Calendar.YEAR, 2020);
                     calendar2.set(Calendar.MONTH, 10);
@@ -286,10 +255,9 @@ public class AddEditExamActivity extends AppCompatActivity {
                 } else {
                     calendar1.set(Calendar.HOUR_OF_DAY, HOUR);
                     calendar1.set(Calendar.MINUTE, MINUTE);
-                    if(edit_flag){
+                    if (edit_flag) {
                         editDate = calendar1.getTime();
-                    }
-                    else{
+                    } else {
                         savedDate = calendar1.getTime();
                     }
                 }
@@ -308,8 +276,8 @@ public class AddEditExamActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    private Date stringToDate(String aDate,String aFormat) {
-        if(aDate==null) return null;
+    private Date stringToDate(String aDate, String aFormat) {
+        if (aDate == null) return null;
         ParsePosition pos = new ParsePosition(0);
         SimpleDateFormat simpledateformat = new SimpleDateFormat(aFormat);
         Date stringDate = simpledateformat.parse(aDate, pos);
@@ -317,7 +285,7 @@ public class AddEditExamActivity extends AppCompatActivity {
     }
 
     public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

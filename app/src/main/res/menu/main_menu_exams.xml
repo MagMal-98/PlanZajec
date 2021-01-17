@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/delete_all_exams"
-        android:title="Delete all notifications"
+        android:title="@string/delete_all_notifications"
         app:showAsAction="never" />
 </menu>

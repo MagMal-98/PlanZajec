@@ -37,11 +37,14 @@ public abstract class ExamDatabase extends RoomDatabase {
             new PopulateDbAsyncTask(instance).execute();
         }
     };
+
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
         private ExamDao examDao;
+
         private PopulateDbAsyncTask(ExamDatabase db) {
             examDao = db.examDao();
         }
+
         @Override
         protected Void doInBackground(Void... voids) {
             Calendar calendar = Calendar.getInstance();

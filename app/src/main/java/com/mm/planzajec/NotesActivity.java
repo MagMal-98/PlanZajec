@@ -1,5 +1,14 @@
 package com.mm.planzajec;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,15 +22,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -55,11 +55,6 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new MessageFragment()).commit();
-//            navigationView.setCheckedItem(R.id.nav_message);
-        //}
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,18 +130,12 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_message:
+            case R.id.nav_schedule:
                 intent = new Intent(NotesActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_chat:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                        new ChatFragment()).commit();
+            case R.id.nav_change_schedule:
                 intent = new Intent(NotesActivity.this, ChangeScheduleActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_profile:
-                intent = new Intent(NotesActivity.this, NotificationsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_exams:
@@ -154,13 +143,9 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
                 startActivity(intent);
                 break;
             case R.id.nav_notes:
-                intent = new Intent(NotesActivity.this, NotesActivity.class);
-                startActivity(intent);
+                onBackPressed();
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_send:
+            case R.id.nav_personalize:
                 Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
                 break;
         }

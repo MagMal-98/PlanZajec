@@ -1,9 +1,9 @@
 package com.mm.planzajec;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AlarmActivityExam extends AppCompatActivity {
 
@@ -19,7 +19,6 @@ public class AlarmActivityExam extends AppCompatActivity {
         textViewHour = findViewById(R.id.textView_hour);
         textViewDate = findViewById(R.id.textView_date);
         textViewMessage = findViewById(R.id.textView_message);
-
 
         Bundle extras = getIntent().getExtras();
         String msg = extras.getString("message");

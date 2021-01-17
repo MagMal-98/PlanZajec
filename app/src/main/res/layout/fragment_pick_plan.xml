@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PickPlanFragment">
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/select_your_plan"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/department_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/department"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/department_spinner"
+        android:layout_width="350dp"
+        android:layout_height="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:scrollbarSize="14dp" />
+
+    <TextView
+        android:id="@+id/field_of_study_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/field_of_study"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/field_of_study_spinner"
+        android:layout_width="350dp"
+        android:layout_height="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:scrollbarSize="14dp" />
+
+    <TextView
+        android:id="@+id/semester_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/semester"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/semester_spinner"
+        android:layout_width="350dp"
+        android:layout_height="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:scrollbarSize="14dp" />
+
+    <TextView
+        android:id="@+id/group_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/group"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/group_spinner"
+        android:layout_width="350dp"
+        android:layout_height="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:scrollbarSize="14dp" />
+
+    <TextView
+        android:id="@+id/subgroup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/subgroup"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/subgroup_spinner"
+        android:layout_width="350dp"
+        android:layout_height="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:scrollbarSize="14dp" />
+
+    <Button
+        android:id="@+id/add_plan_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        android:text="@string/add_plan" />
+
+</LinearLayout>

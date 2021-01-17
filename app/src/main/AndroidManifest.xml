@@ -9,15 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddEditExamActivity"></activity>
-        <activity android:name=".AlarmActivityExam"
-            android:theme="@style/AlertTheme"/>
+        <activity android:name=".PlanItemOptionsActivity" />
+        <activity
+            android:name=".AlarmActivityLesson"
+            android:theme="@style/AlertTheme" />
+        <activity android:name=".AddEditExamActivity" />
+        <activity
+            android:name=".AlarmActivityExam"
+            android:theme="@style/AlertTheme" />
         <activity
             android:name=".AddEditNoteActivity"
             android:parentActivityName=".NotesActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".ExamsActivity" />
-        <activity android:name=".NotificationsActivity" />
         <activity android:name=".ChangeScheduleActivity" />
         <activity android:name=".FirstStartActivity" />
         <activity android:name=".MainActivity">
@@ -27,7 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver android:name=".AlarmReceiverExam" />
+        <receiver android:name=".AlarmReceiverLesson" />
     </application>
 
 </manifest>

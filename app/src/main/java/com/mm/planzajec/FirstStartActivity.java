@@ -1,8 +1,8 @@
 package com.mm.planzajec;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstStartActivity extends AppCompatActivity {
 

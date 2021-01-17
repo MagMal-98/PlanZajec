@@ -47,11 +47,11 @@ public class Exam {
         return exam_time;
     }
 
-    public double getExam_timeToNotify(){
+    public double getExam_timeToNotify() {
         return exam_timeToNotify;
     }
 
-    public int getExam_notification_id(){
+    public int getExam_notification_id() {
         return exam_notification_id;
     }
 }

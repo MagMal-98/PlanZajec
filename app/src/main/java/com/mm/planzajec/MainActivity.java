@@ -1,16 +1,19 @@
 package com.mm.planzajec;
-import android.content.Intent;
-import android.os.Bundle;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
-//import android.widget.Toolbar;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -24,16 +27,12 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-
-    private DayOfWeekFragment dayOfWeekFragment;
-    private DayOfWeekFragment dayOfWeekFragment1;
-    private DayOfWeekFragment dayOfWeekFragment2;
-    private DayOfWeekFragment dayOfWeekFragment3;
-    private DayOfWeekFragment dayOfWeekFragment4;
+    private ReadJson readJson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,55 +64,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new MessageFragment()).commit();
-//            navigationView.setCheckedItem(R.id.nav_message);
-//        }
-
         //tablayout
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
-
-        dayOfWeekFragment = new DayOfWeekFragment();
-        dayOfWeekFragment1 = new DayOfWeekFragment();
-        dayOfWeekFragment2 = new DayOfWeekFragment();
-        dayOfWeekFragment3 = new DayOfWeekFragment();
-        dayOfWeekFragment4 = new DayOfWeekFragment();
-
+        readJson = new ReadJson(this);
+        ArrayList<String> weekDays = new ArrayList<>();
+        weekDays.add("Monday");
+        weekDays.add("Tuesday");
+        weekDays.add("Wednesday");
+        weekDays.add("Thursday");
+        weekDays.add("Friday");
+        prepareViewPager(viewPager, weekDays);
         tabLayout.setupWithViewPager(viewPager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
-//        String[] name_tab ={"Monday", "Tuesday","Wednesday","Thursday","Friday"};
-//        for (int i=0; i<name_tab.length+1; i++){
-//            dayOfWeekFragment = new DayOfWeekFragment();
-//            viewPagerAdapter.addFragment(dayOfWeekFragment, name_tab[i]);
-//        }
-        viewPagerAdapter.addFragment(dayOfWeekFragment, "Monday");
-        viewPagerAdapter.addFragment(dayOfWeekFragment1, "Tuesday");
-        viewPagerAdapter.addFragment(dayOfWeekFragment2, "Wednesday");
-        viewPagerAdapter.addFragment(dayOfWeekFragment3, "Thursday");
-        viewPagerAdapter.addFragment(dayOfWeekFragment4, "Friday");
-        viewPager.setAdapter(viewPagerAdapter);
+        createChannel();
 
+    }
+
+    public ReadJson getReadJson() {
+        return readJson;
+    }
+
+    private void prepareViewPager(ViewPager viewPager, ArrayList<String> weekDays) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        String supervisor = getIntent().getStringExtra("supervisor");
+        String room = getIntent().getStringExtra("room");
+        String course = getIntent().getStringExtra("course");
+
+        for (int i = 0; i < weekDays.size(); i++) {
+            DayOfWeekFragment fragment = new DayOfWeekFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("adapter", String.valueOf(i));
+            bundle.putString("supervisor", supervisor);
+            bundle.putString("room", room);
+            bundle.putString("course", course);
+            fragment.setArguments(bundle);
+            adapter.addFragment(fragment, weekDays.get(i));
+        }
+        viewPager.setAdapter(adapter);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_message:
-                intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
+            case R.id.nav_schedule:
+                onBackPressed();
                 break;
-            case R.id.nav_chat:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                        new ChatFragment()).commit();
+            case R.id.nav_change_schedule:
                 intent = new Intent(MainActivity.this, ChangeScheduleActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_profile:
-                intent = new Intent(MainActivity.this, NotificationsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_exams:
@@ -123,13 +122,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_notes:
                 intent = new Intent(MainActivity.this, NotesActivity.class);
                 startActivity(intent);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                        new NotesFragment()).commit();
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_send:
+            case R.id.nav_personalize:
                 Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -149,34 +143,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> fragments = new ArrayList<>();
-        private List<String> fragmentTitle = new ArrayList<>();
+        ArrayList<String> arrayList = new ArrayList<>();
+        List<Fragment> fragmentList = new ArrayList<>();
 
-        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
+        public void addFragment(Fragment fragment, String title) {
+            arrayList.add(title);
+            fragmentList.add(fragment);
         }
 
-        public void addFragment(Fragment fragment, String title){
-            fragments.add(fragment);
-            fragmentTitle.add(title);
-
+        public ViewPagerAdapter(@NonNull FragmentManager fm) {
+            super(fm);
         }
 
         @NonNull
         @Override
         public Fragment getItem(int position) {
-            return fragments.get(position);
+            return fragmentList.get(position);
         }
 
         @Override
         public int getCount() {
-            return fragments.size();
+            return fragmentList.size();
         }
 
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
-            return fragmentTitle.get(position);
+            return arrayList.get(position);
+        }
+    }
+
+    public void createChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // For API 26 and above
+            CharSequence channelName = "ePlan Notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(AlarmReceiverLesson.CHANNEL_ID, channelName, importance);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 }

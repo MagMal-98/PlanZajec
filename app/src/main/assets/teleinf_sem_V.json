@@ -1,0 +1,582 @@
+{
+  "courses": [
+    {
+      "name": "Monitorowanie i ocena wydajności sieci pakietowych",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "prof. dr hab. inż. Mariusz Głąbowski",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "WE-537X",
+          "supervisor": "dr hab. inż. Sławomir Hanczewski",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 2,
+              "startTime": "16:50",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            },
+            {
+              "day": 2,
+              "startTime": "18:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "16:50",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "left"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bazy Danych",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "BM-324",
+          "supervisor": "dr inż. Tomasz Koszlajda",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "BT 1.6.22",
+          "supervisor": "dr inż. Bartosz Bębel ",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "left"
+            },
+            {
+              "day": 1,
+              "startTime": "16:50",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "BT 1.6.22",
+          "supervisor": "dr inż. Juliusz Jezierski",
+          "schedule": [
+            {
+              "day": 3,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wprowadzenie do multimediów",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "prof. dr hab. inż. Marek Domański",
+          "schedule": [
+            {
+              "day": 2,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            },
+            {
+              "day": 4,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-119a",
+          "supervisor": "dr inż. Dawid Mieloch",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            },
+            {
+              "day": 2,
+              "startTime": "8:00",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 2,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "left"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-119a",
+          "supervisor": "mgr inż. Jakub Stankowski",
+          "schedule": [
+            {
+              "day": 5,
+              "startTime": "8:00",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-119a",
+          "supervisor": "mgr inż. Mateusz Lorkiewicz",
+          "schedule": [
+            {
+              "day": 5,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bezprzewodowe sieci dostępowe",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "dr inż. Paweł Kryszkiewicz",
+          "schedule": [
+            {
+              "day": 2,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-019",
+          "supervisor": "dr inż. Paweł Kryszkiewicz",
+          "schedule": [
+            {
+              "day": 3,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "odd",
+              "group": "I1",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 5,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "odd",
+              "group": "I2",
+              "subgroup": "right"
+            },
+            {
+              "day": 5,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I2",
+              "subgroup": "left"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-019",
+          "supervisor": "dr inż. Krzysztof Cichoń",
+          "schedule": [
+            {
+              "day": 4,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "odd",
+              "group": "I3",
+              "subgroup": "right"
+            },
+            {
+              "day": 4,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I3",
+              "subgroup": "left"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Systemy sygnalizacji i zarządzania",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "prof. dr hab. inż. Wojciech Kabaciński P-011, dr inż. Janusz Kleban, prof dr hab. inż. Grzegorz Danilewicz",
+          "schedule": [
+            {
+              "day": 2,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-024",
+          "supervisor": "dr hab. inż. Remigiusz Rajewski, prof. dr hab. Inż. Wojciech Kabaciński",
+          "schedule": [
+            {
+              "day": 1,
+              "startTime": "8:00",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "left"
+            },
+            {
+              "day": 1,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "left"
+            },
+            {
+              "day": 2,
+              "startTime": "16:50",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sieciowe systemy operacyjne",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "dr inż. Marek Michalski",
+          "schedule": [
+            {
+              "day": 4,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-024",
+          "supervisor": "dr inż. Marek Michalski",
+          "schedule": [
+            {
+              "day": 4,
+              "startTime": "8:00",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I1",
+              "subgroup": "left"
+            },
+            {
+              "day": 4,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 5,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "odd",
+              "group": "I3",
+              "subgroup": "left"
+            },
+            {
+              "day": 5,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I3",
+              "subgroup": "right"
+            },
+            {
+              "day": 5,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "odd",
+              "group": "I2",
+              "subgroup": "right"
+            },
+            {
+              "day": 5,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "even",
+              "group": "I2",
+              "subgroup": "left"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Programowanie mikroprocesorów",
+      "classes": [
+        {
+          "type": "Lecture",
+          "room": "P-011",
+          "supervisor": "dr hab. inż. Paweł Szulakiewicz prof. nadzw. PP",
+          "schedule": [
+            {
+              "day": 4,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all",
+              "info": "wykłady do połowy semestru"
+            },
+            {
+              "day": 4,
+              "startTime": "16:50",
+              "duration": 90,
+              "weeks": "all",
+              "group": "all",
+              "subgroup": "all",
+              "info": "wykłady do połowy semestru"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-004",
+          "supervisor": "dr inż. Marcin Rodziewicz",
+          "schedule": [
+            {
+              "day": 3,
+              "startTime": "8:00",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "left"
+            },
+            {
+              "day": 3,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "left"
+            },
+            {
+              "day": 5,
+              "startTime": "11:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "right"
+            }
+          ]
+        },
+        {
+          "type": "Lab",
+          "room": "P-004",
+          "supervisor": "dr hab. inż. Adrian Kliks",
+          "schedule": [
+            {
+              "day": 3,
+              "startTime": "9:45",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I1",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "13:30",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I2",
+              "subgroup": "right"
+            },
+            {
+              "day": 3,
+              "startTime": "15:10",
+              "duration": 90,
+              "weeks": "all",
+              "group": "I3",
+              "subgroup": "left"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
