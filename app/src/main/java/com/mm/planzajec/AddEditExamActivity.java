@@ -26,6 +26,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -47,7 +50,7 @@ public class AddEditExamActivity extends AppCompatActivity {
     public static final String EXTRA_EXAM_NOTIFICATION_ID =
             "com.mm.planzajec.EXTRA_EXAM_NOTIFICATION_ID";
 
-    private EditText editTextExamTitle;
+    private TextInputEditText editTextExamTitle;
     private TextView textViewExamDate;
     private TextView textViewExamTime;
     private Button buttonExamDate;

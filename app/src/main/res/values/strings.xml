@@ -18,17 +18,17 @@
     <string name="set_time_exam">Set Time</string>
     <string name="get_time_exam">get time</string>
     <string name="title">Title</string>
-    <string name="pick_schedule">Pick schedule</string>
+    <string name="pick_schedule"><b>PICK SCHEDULE</b></string>
     <string name="show_schedule_for_supervisor">show schedule for supervisor</string>
     <string name="show_schedule_for_course">show schedule for course</string>
     <string name="show_schedule_for_room">show schedule for room</string>
-    <string name="set_notification">Set notification</string>
+    <string name="set_notification"><b>SET NOTIFICATION</b></string>
     <string name="set_date_plan">Set Date</string>
     <string name="get_date_plan">get date</string>
     <string name="set_time_plan">Set Time</string>
     <string name="get_time_plan">get time</string>
     <string name="set_notification_button">set notification</string>
-    <string name="select_your_plan">Select Your Plan</string>
+    <string name="select_your_plan"><b>SELECT YOUR PLAN</b></string>
     <string name="department">Department</string>
     <string name="field_of_study">Field of study</string>
     <string name="semester">Semester</string>
@@ -56,4 +56,5 @@
     <string name="settings">Settings</string>
     <string name="personalize">Personalize</string>
     <string name="delete_all_notifications">Delete all notifications</string>
+    <string name="close">close</string>
 </resources>

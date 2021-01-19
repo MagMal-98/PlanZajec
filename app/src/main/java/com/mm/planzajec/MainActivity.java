@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabLayout.setupWithViewPager(viewPager);
 
         createChannel();
-
     }
 
     public ReadJson getReadJson() {
@@ -184,4 +183,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             notificationManager.createNotificationChannel(channel);
         }
     }
+
+
 }

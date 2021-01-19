@@ -75,7 +75,6 @@ public class PlanItemOptionsActivity extends AppCompatActivity {
                 intent = new Intent(PlanItemOptionsActivity.this, MainActivity.class);
                 intent.putExtra("supervisor", supervisorSchedule);
                 startActivity(intent);
-
             }
 
         });

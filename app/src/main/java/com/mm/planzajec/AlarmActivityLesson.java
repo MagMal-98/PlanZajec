@@ -2,6 +2,8 @@ package com.mm.planzajec;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ public class AlarmActivityLesson extends AppCompatActivity {
     private TextView textViewLessonName;
     private TextView textViewRoom;
     private TextView textViewSupervisor;
+    private Button buttonClose;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -23,6 +26,7 @@ public class AlarmActivityLesson extends AppCompatActivity {
         textViewLessonName = findViewById(R.id.textViewLessonName);
         textViewRoom = findViewById(R.id.textViewRoom);
         textViewSupervisor = findViewById(R.id.textViewSupervisor);
+        buttonClose = findViewById(R.id.button_lesson_close);
 
         Bundle extras = getIntent().getExtras();
         String hour = extras.getString("hour");
@@ -35,6 +39,13 @@ public class AlarmActivityLesson extends AppCompatActivity {
         textViewLessonName.setText(name);
         textViewRoom.setText(room);
         textViewSupervisor.setText(supervisor);
+
+        buttonClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     public static String getDayName(int day) {

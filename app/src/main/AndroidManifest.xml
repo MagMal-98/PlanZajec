@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlanItemOptionsActivity" />
+        <activity
+            android:name=".PlanItemOptionsActivity"
+            android:noHistory="true"/>
         <activity
             android:name=".AlarmActivityLesson"
             android:theme="@style/AlertTheme" />

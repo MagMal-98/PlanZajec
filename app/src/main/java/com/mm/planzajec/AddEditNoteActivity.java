@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -26,7 +28,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
     public static final String EXTRA_DATE =
             "com.mm.planzajec.EXTRA_DATE";
 
-    private EditText editNoteTitle;
+    private TextInputEditText editNoteTitle;
     private EditText editNoteDescription;
     private TextView dateNoteTextView;
 

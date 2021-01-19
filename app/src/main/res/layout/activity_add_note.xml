@@ -13,7 +13,7 @@
         android:id="@+id/toolbar_notes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorBlue"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -22,16 +22,28 @@
         android:id="@+id/text_view_date_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorOrange"/>
 
-    <EditText
-        android:id="@+id/edit_text_title_note"
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/custom_input"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:hint="@string/title"
-        android:inputType="text"
-        android:padding="16dp" />
+        app:boxBackgroundMode="filled"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxStrokeColor="@color/colorTurquoise">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_title_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:textSize="18sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/edit_text_description_note"
@@ -39,7 +51,11 @@
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:inputType="textMultiLine"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
         android:padding="16dp"
-        android:paddingTop="20dp" />
+        android:paddingTop="20dp"
+        android:hint="Enter your note"
+        android:textSize="14dp"/>
 
 </LinearLayout>

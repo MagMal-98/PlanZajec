@@ -18,6 +18,7 @@ public class DayOfWeekFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private ArrayList<PlanItem> arrayList;
+    boolean touch_enable = false;
     String hour;
     String supervisor;
     String room;
@@ -60,35 +61,42 @@ public class DayOfWeekFragment extends Fragment {
                     Integer day = Integer.valueOf(adapter) + 1;
                     arrayList = read.restoreFromJson(day, group, subgroup);
                     mAdapter = new PlanAdapter(arrayList);
+                    touch_enable = true;
                 }
                 recyclerView.setAdapter(mAdapter);
             }
         }
 
+
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
+                        if (touch_enable) {
 
-                        if (position != RecyclerView.NO_POSITION) {
-                            hour = arrayList.get(position).getHour();
-                            supervisor = arrayList.get(position).getSupervisor();
-                            room = arrayList.get(position).getRoom();
-                            name = arrayList.get(position).getName();
-                            weekDay = arrayList.get(position).getDay();
+                            if (position != RecyclerView.NO_POSITION) {
+                                hour = arrayList.get(position).getHour();
+                                supervisor = arrayList.get(position).getSupervisor();
+                                room = arrayList.get(position).getRoom();
+                                name = arrayList.get(position).getName();
+                                weekDay = arrayList.get(position).getDay();
+                            }
+
+                            Intent intent;
+                            intent = new Intent(getContext(), PlanItemOptionsActivity.class);
+                            intent.putExtra("courseName", name);
+                            intent.putExtra("supervisor", supervisor);
+                            intent.putExtra("room", room);
+                            intent.putExtra("hour", hour);
+                            intent.putExtra("weekDay", weekDay);
+                            startActivity(intent);
                         }
-
-                        Intent intent;
-                        intent = new Intent(getContext(), PlanItemOptionsActivity.class);
-                        intent.putExtra("courseName", name);
-                        intent.putExtra("supervisor", supervisor);
-                        intent.putExtra("room", room);
-                        intent.putExtra("hour", hour);
-                        intent.putExtra("weekDay", weekDay);
-                        startActivity(intent);
                     }
                 })
         );
+
         return v;
     }
+
+
 }

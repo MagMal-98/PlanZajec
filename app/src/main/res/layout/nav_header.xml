@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/image001"
         android:gravity="bottom"
         android:orientation="vertical"
         android:padding="16dp"
@@ -17,12 +17,14 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:text="@string/your_daily_college_schedule"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorNero"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/context_menu_options" />
+            android:text="@string/context_menu_options"
+            android:textColor="@color/colorOrange"/>
 
     </LinearLayout>
 </LinearLayout>

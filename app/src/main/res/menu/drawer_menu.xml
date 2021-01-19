@@ -8,19 +8,19 @@
                 <item
                     android:id="@+id/nav_schedule"
                     android:title="@string/current_schedule"
-                    android:icon="@drawable/ic_launcher_foreground" />
+                    android:icon="@drawable/ic_baseline_class_24" />
                 <item
                     android:id="@+id/nav_change_schedule"
                     android:title="@string/change_current_schedule"
-                    android:icon="@drawable/ic_launcher_foreground" />
+                    android:icon="@drawable/ic_baseline_change_circle_24" />
                 <item
                     android:id="@+id/nav_exams"
                     android:title="@string/exams"
-                    android:icon="@drawable/ic_launcher_foreground" />
+                    android:icon="@drawable/ic_baseline_event_note_24" />
                 <item
                     android:id="@+id/nav_notes"
                     android:title="@string/notes"
-                    android:icon="@drawable/ic_launcher_foreground" />
+                    android:icon="@drawable/ic_baseline_sticky_note_2_24" />
             </menu>
         </item>
     </group>
@@ -28,7 +28,7 @@
         <menu>
             <item
                 android:id="@+id/nav_personalize"
-                android:icon="@drawable/ic_launcher_foreground"
+                android:icon="@drawable/ic_baseline_settings_24"
                 android:title="@string/personalize" />
         </menu>
     </item>
