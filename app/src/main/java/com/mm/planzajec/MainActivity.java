@@ -1,9 +1,12 @@
 package com.mm.planzajec;
 
+import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -26,6 +29,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Current schedule");
+        setTitle(getResources().getString(R.string.main_card));
 
         //start another activity only once after install
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
@@ -69,11 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabLayout = findViewById(R.id.tab_layout);
         readJson = new ReadJson(this);
         ArrayList<String> weekDays = new ArrayList<>();
-        weekDays.add("Monday");
-        weekDays.add("Tuesday");
-        weekDays.add("Wednesday");
-        weekDays.add("Thursday");
-        weekDays.add("Friday");
+        weekDays.add(getResources().getString(R.string.monday));
+        weekDays.add(getResources().getString(R.string.tuesday));
+        weekDays.add(getResources().getString(R.string.wednesday));
+        weekDays.add(getResources().getString(R.string.thursday));
+        weekDays.add(getResources().getString(R.string.friday));
         prepareViewPager(viewPager, weekDays);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -123,7 +127,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_personalize:
-                Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
         }
 
@@ -183,6 +188,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             notificationManager.createNotificationChannel(channel);
         }
     }
-
-
 }

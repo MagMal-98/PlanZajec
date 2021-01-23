@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -27,7 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -86,7 +84,7 @@ public class AddEditExamActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent.hasExtra(EXTRA_EXAM_ID)) {
-            setTitle("Edit Exam Notification");
+            setTitle(getResources().getString(R.string.exam_edit_card));
             edit_flag = true;
             editTextExamTitle.setText(intent.getStringExtra(EXTRA_EXAM_TITLE));
             textViewExamDate.setText(intent.getStringExtra(EXTRA_EXAM_DATE));
@@ -94,7 +92,7 @@ public class AddEditExamActivity extends AppCompatActivity {
             edit_id = intent.getIntExtra(EXTRA_EXAM_ID, -1);
             edit_notification_id = intent.getIntExtra(EXTRA_EXAM_NOTIFICATION_ID, -1);
         } else {
-            setTitle("Add Exam Notification");
+            setTitle(getResources().getString(R.string.exam_add_card));
         }
 
         buttonExamDate.setOnClickListener(new View.OnClickListener() {

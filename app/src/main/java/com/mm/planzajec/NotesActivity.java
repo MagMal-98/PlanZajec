@@ -41,7 +41,7 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-        setTitle("Notes");
+        setTitle(getResources().getString(R.string.notes_card));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -146,7 +146,8 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
                 onBackPressed();
                 break;
             case R.id.nav_personalize:
-                Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
+                intent = new Intent(NotesActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
         }
 

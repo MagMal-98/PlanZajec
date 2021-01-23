@@ -21,7 +21,7 @@ public class ChangeScheduleActivity extends AppCompatActivity implements Navigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_schedule);
-        setTitle("Change current schedule");
+        setTitle(getResources().getString(R.string.change_schedule_card));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,7 +56,8 @@ public class ChangeScheduleActivity extends AppCompatActivity implements Navigat
                 startActivity(intent);
                 break;
             case R.id.nav_personalize:
-                Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
+                intent = new Intent(ChangeScheduleActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
         }
 

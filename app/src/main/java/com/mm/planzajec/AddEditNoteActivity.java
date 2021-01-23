@@ -49,11 +49,11 @@ public class AddEditNoteActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("Edit Note");
+            setTitle(getResources().getString(R.string.note_add_card));
             editNoteTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editNoteDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
         } else {
-            setTitle("Add Note");
+            setTitle(getResources().getString(R.string.note_add_card));
         }
 
         Calendar calendar = Calendar.getInstance();

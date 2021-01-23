@@ -229,12 +229,14 @@ public class ReadJson {
 //Picking schedule for subgroup
 
     public ArrayList<String> getDepartment() {
-        department.add("Computing and Telecommunications");
+        String dep = context.getResources().getString(R.string.department1);
+        department.add(dep);
         return department;
     }
 
     public ArrayList<String> getField_of_study() {
-        field_of_study.add("ICT");
+        String fos = context.getResources().getString(R.string.field_of_study1);
+        field_of_study.add(fos);
         return field_of_study;
     }
 

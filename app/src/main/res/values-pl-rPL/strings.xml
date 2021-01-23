@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PlanZajec</string>
+    <string name="settings_card">Ustawienia</string>
+    <string name="main_card">Plan Zajęć</string>
+    <string name="exam_edit_card">Edytuj Powiadomienie</string>
+    <string name="exam_add_card">Dodaj Powiadomienie</string>
+    <string name="note_edit_card">Edytuj Notatkę</string>
+    <string name="note_add_card">Dodaj Notatkę</string>
+    <string name="change_schedule_card">Zmień Plan Zajęć</string>
+    <string name="exams_card">Egzaminy</string>
+    <string name="notes_card">Notatki</string>
+
+    <string name="monday">Poniedziałek</string>
+    <string name="tuesday">Wtorek</string>
+    <string name="wednesday">Środa</string>
+    <string name="thursday">Czwartek</string>
+    <string name="friday">Piątek</string>
+
+    <string name="department1">Informatyka i Telekomunikacja</string>
+    <string name="field_of_study1">Teleinformatyka</string>
+
+    <string name="your_daily_college_schedule">Twój plan zajęć</string>
+    <string name="context_menu_options"><![CDATA[Menu & Opcje]]></string>
+    <string name="navigation_drawer_open">Otwórz menu</string>
+    <string name="navigation_drawer_close">Zamknij menu</string>
+    <string name="enter_title">Podaj tytuł</string>
+    <string name="set_date_exam">Data</string>
+    <string name="get_date_exam">Ustaw datę</string>
+    <string name="set_time_exam">Godzina</string>
+    <string name="get_time_exam">Ustaw godzinę</string>
+    <string name="title">Tytuł</string>
+    <string name="pick_schedule"><b>WYBIERZ PLAN</b></string>
+    <string name="show_schedule_for_supervisor">pokaż plan wykładowcy</string>
+    <string name="show_schedule_for_course">pokaż plan kursu</string>
+    <string name="show_schedule_for_room">pokaż plan sali</string>
+    <string name="set_notification"><b>USTAW POWIADOMIENIE</b></string>
+    <string name="set_date_plan">Data</string>
+    <string name="get_date_plan">Ustaw datę</string>
+    <string name="set_time_plan">Godzina</string>
+    <string name="get_time_plan">Ustaw godzinę</string>
+    <string name="set_notification_button">ustaw powiadomienie</string>
+    <string name="select_your_plan"><b>WYBIERZ PLAN</b></string>
+    <string name="department">Wydział</string>
+    <string name="field_of_study">Kierunek</string>
+    <string name="semester">Semestr</string>
+    <string name="group">Grupa</string>
+    <string name="subgroup">Grupa dziekańska</string>
+    <string name="add_plan">Dodaj plan</string>
+    <string name="note_date_example">Jan 12, 1952</string>
+    <string name="note_title_example">Tytył notatki</string>
+    <string name="note_description_example">Opis</string>
+    <string name="exam_title_example">Tytuł</string>
+    <string name="exam_date_example">Data</string>
+    <string name="exam_time_example">Godzina</string>
+    <string name="plan_name_example">Nazwa przedmiotu</string>
+    <string name="plan_hour_example">Godzina</string>
+    <string name="plan_supervisor_example">Wykładowca</string>
+    <string name="plan_room_example">Sala</string>
+    <string name="select_an_option">Wybierz opcję</string>
+    <string name="save">Zapisz</string>
+    <string name="delete_all_notes">Usuń wszystkie notatki</string>
+    <string name="tabs_menu">Menu główne</string>
+    <string name="current_schedule">Aktualny plan zajęć</string>
+    <string name="change_current_schedule">Zmień plan zajęć</string>
+    <string name="exams">Egzaminy</string>
+    <string name="notes">Notatki</string>
+    <string name="settings">Ustawienia</string>
+    <string name="personalize">Personalizacja</string>
+    <string name="delete_all_notifications">Usuń wszystkie powiadomienia</string>
+    <string name="close">Zamknij</string>
+    <string name="change_application_language"><b>ZMIEŃ JĘZYK APLIKACJI</b></string>
+    <string name="set_language"><b>USTAW JĘZYK</b></string>
+    <string name="change_application_theme"><b>ZMIEŃ MOTYW APLIKACJI</b></string>
+    <string name="set_theme">ustaw motyw</string>
+</resources>

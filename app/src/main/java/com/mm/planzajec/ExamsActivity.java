@@ -45,7 +45,7 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exams);
-        setTitle("Exams");
+        setTitle(getResources().getString(R.string.exams_card));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -162,7 +162,8 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
                 startActivity(intent);
                 break;
             case R.id.nav_personalize:
-                Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
+                intent = new Intent(ExamsActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
         }
 
