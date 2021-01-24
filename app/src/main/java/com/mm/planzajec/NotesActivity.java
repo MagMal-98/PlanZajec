@@ -1,5 +1,6 @@
 package com.mm.planzajec;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -39,6 +40,7 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
 
     private NoteViewModel noteViewModel;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
