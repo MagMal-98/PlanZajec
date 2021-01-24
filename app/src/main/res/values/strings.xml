@@ -18,6 +18,16 @@
     <string name="department1">Computing and Telecommunications</string>
     <string name="field_of_study1">ICT</string>
 
+    <string name="notification_title">E-PLAN NOTIFICATION</string>
+    <string name="notification_lesson_text">New lesson notification</string>
+    <string name="big_text_1_lesson">Your class</string>
+    <string name="big_text_2_lesson">starts now</string>
+
+    <string name="red_theme">Red</string>
+    <string name="blue_theme">Blue</string>
+
+    <string name="note_toast">Please insert a title and description</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="your_daily_college_schedule">Your daily college schedule</string>
     <string name="context_menu_options"><![CDATA[Context & menu options]]></string>
@@ -71,5 +81,6 @@
     <string name="change_application_language"><b>CHANGE APPLICATION LANGUAGE</b></string>
     <string name="set_language"><b>SET LANGUAGE</b></string>
     <string name="change_application_theme"><b>CHANGE APPLICATION THEME</b></string>
-    <string name="set_theme">set theme</string>
+    <string name="set_theme"><b>SET THEME</b></string>
+    <string name="enter_your_note">Enter your note</string>
 </resources>

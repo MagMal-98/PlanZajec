@@ -29,12 +29,18 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
     private DrawerLayout drawer;
     private TextView changeLanguage;
+    private TextView changeColor;
     boolean langSelected = true;
+    boolean colorSelected = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loadLocale();
+
+        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
+        String color = preferences.getString("themeKey", "");
+        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
+        else getTheme().applyStyle(R.style.AppThemeBlue, true);
 
         setContentView(R.layout.activity_settings);
         setTitle(getResources().getString(R.string.settings_card));
@@ -73,7 +79,6 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                                 if (languageList[which].equals("Polski")){
                                     setLocale("pl");
                                 }
-
                             }
                         })
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -84,7 +89,47 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                             }
                         });
                 builder.create().show();
+            }
 
+
+        });
+
+        changeColor = findViewById(R.id.text_view_change_color_button);
+        changeColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String[] colorList = {getResources().getString(R.string.blue_theme), getResources().getString(R.string.red_theme)};
+
+                int checkedItem;
+                if (colorSelected){
+                    checkedItem = 0;
+                } else checkedItem = 1;
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setTitle("Select theme")
+                        .setSingleChoiceItems(colorList, checkedItem, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (colorList[which].equals(getResources().getString(R.string.blue_theme))){
+                                    SharedPreferences.Editor editor = getSharedPreferences("Theme", MODE_PRIVATE).edit();
+                                    editor.putString("themeKey", "blue");
+                                    editor.apply();
+                                }
+                                if (colorList[which].equals(getResources().getString(R.string.red_theme))){
+                                    SharedPreferences.Editor editor = getSharedPreferences("Theme", MODE_PRIVATE).edit();
+                                    editor.putString("themeKey", "red");
+                                    editor.apply();
+                                }
+                            }
+                        })
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                recreate();
+                                dialog.dismiss();
+                            }
+                        });
+                builder.create().show();
             }
 
 

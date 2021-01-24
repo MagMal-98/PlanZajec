@@ -35,12 +35,13 @@ public class AlarmReceiverLesson extends BroadcastReceiver {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
-                .setContentTitle("EPLAN NOTIFICATION")
-                .setContentText("New lesson notification")
+                .setContentTitle(context.getResources().getString(R.string.notification_title))
+                .setContentText(context.getResources().getString(R.string.notification_lesson_text))
                 .setContentIntent(contentIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Your class " + name + " starts now"))
+                        .bigText(context.getResources().getString(R.string.big_text_1_lesson)
+                                + " " + name + " " + context.getResources().getString(R.string.big_text_2_lesson)))
                 .setAutoCancel(true);
 
         notificationManager.notify(notificationId, builder.build());

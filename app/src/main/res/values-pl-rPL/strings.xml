@@ -20,6 +20,16 @@
     <string name="department1">Informatyka i Telekomunikacja</string>
     <string name="field_of_study1">Teleinformatyka</string>
 
+    <string name="notification_title">E-PLAN POWIADOMIENIE</string>
+    <string name="notification_lesson_text">Przypomnienie o zajęciach</string>
+    <string name="big_text_1_lesson">Twoje zajęcia</string>
+    <string name="big_text_2_lesson">zaczynają się teraz</string>
+
+    <string name="note_toast">Proszę wprowadzić tytuł oraz treść notatki</string>
+
+    <string name="red_theme">Czerwony</string>
+    <string name="blue_theme">Niebieski</string>
+
     <string name="your_daily_college_schedule">Twój plan zajęć</string>
     <string name="context_menu_options"><![CDATA[Menu & Opcje]]></string>
     <string name="navigation_drawer_open">Otwórz menu</string>
@@ -72,5 +82,6 @@
     <string name="change_application_language"><b>ZMIEŃ JĘZYK APLIKACJI</b></string>
     <string name="set_language"><b>USTAW JĘZYK</b></string>
     <string name="change_application_theme"><b>ZMIEŃ MOTYW APLIKACJI</b></string>
-    <string name="set_theme">ustaw motyw</string>
+    <string name="set_theme"><b>USTAW MOTYW</b></string>
+    <string name="enter_your_note">Dodaj treść notatki</string>
 </resources>

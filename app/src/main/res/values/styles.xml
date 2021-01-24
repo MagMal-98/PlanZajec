@@ -1,7 +1,25 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorAccent">@color/colorBlue</item>
+    <style name="AppThemeBlue" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorSecondary">@color/colorTurquoise</item>
+        <item name="colorAccent">@color/colorOrange</item>
+        <item name="colorPrimaryDark">@color/colorNero</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textAppearanceButton">@color/colorWhite</item>
+        <item name="backgroundColor">@android:color/background_light</item>
+        <item name="background">@android:color/background_light</item>
+    </style>
+
+    <style name="AppThemeRed" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorRed</item>
+        <item name="colorSecondary">@color/colorOrange</item>
+        <item name="colorAccent">@color/colorYellow</item>
+        <item name="colorPrimaryDark">@color/colorBeige</item>
+        <item name="android:textColorPrimary">@color/colorTransparentWhite</item>
+        <item name="android:textAppearanceButton">@color/colorWhite</item>
+        <item name="backgroundColor">@android:color/background_dark</item>
+        <item name="background">@color/colorNero</item>
     </style>
 
     <style name="AlertTheme" parent="Theme.MaterialComponents.Light.NoActionBar">

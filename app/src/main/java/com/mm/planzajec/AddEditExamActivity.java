@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -59,6 +60,12 @@ public class AddEditExamActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
+        String color = preferences.getString("themeKey", "");
+        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
+        else getTheme().applyStyle(R.style.AppThemeBlue, true);
+
         setContentView(R.layout.activity_add_edit_exam);
 
         editTextExamTitle = findViewById(R.id.edit_text_exam_title);
@@ -238,7 +245,8 @@ public class AddEditExamActivity extends AppCompatActivity {
 
     private void handleTimeButton() {
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, new TimePickerDialog.OnTimeSetListener() {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 int HOUR, MINUTE;

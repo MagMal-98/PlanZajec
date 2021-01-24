@@ -48,28 +48,22 @@ public class AlarmActivityLesson extends AppCompatActivity {
         });
     }
 
-    public static String getDayName(int day) {
+    public String getDayName(int day) {
         switch (day) {
             case 1: {
-                return "Monday";
+                return getResources().getString(R.string.monday);
             }
             case 2: {
-                return "Tuesday";
+                return getResources().getString(R.string.tuesday);
             }
             case 3: {
-                return "Wednesday";
+                return getResources().getString(R.string.wednesday);
             }
             case 4: {
-                return "Thursday";
+                return getResources().getString(R.string.thursday);
             }
             case 5: {
-                return "Friday";
-            }
-            case 6: {
-                return "Saturday";
-            }
-            case 7: {
-                return "Sunday";
+                return getResources().getString(R.string.friday);
             }
         }
         return "Wrong Day";

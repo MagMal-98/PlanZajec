@@ -7,7 +7,8 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     app:cardCornerRadius="20dp"
-    app:contentPadding="8dp">
+    app:contentPadding="8dp"
+    app:cardBackgroundColor="?attr/background">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -21,6 +22,7 @@
             android:layout_alignParentEnd="true"
             android:text="@string/note_date_example"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
             />
 
         <TextView
@@ -32,7 +34,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@string/note_title_example"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:attr/textColorPrimary"/>
 
         <TextView
             android:id="@+id/text_view_description_note"
@@ -41,7 +44,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:layout_below="@id/text_view_title_note"
-            android:text="@string/note_description_example" />
+            android:text="@string/note_description_example"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     </RelativeLayout>
 

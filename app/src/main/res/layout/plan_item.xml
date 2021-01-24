@@ -8,7 +8,8 @@
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
     app:cardCornerRadius="20dp"
-    app:contentPadding="8dp">
+    app:contentPadding="8dp"
+    app:cardBackgroundColor="?attr/background">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
             android:inputType="textMultiLine"
             android:text="@string/plan_name_example"
             android:textSize="20sp"
-            tools:ignore="TextViewEdits" />
+            tools:ignore="TextViewEdits"
+            android:textColor="?android:attr/textColorPrimary"/>
 
         <TextView
             android:id="@+id/text_view_plan_hour"
@@ -34,7 +36,8 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:text="@string/plan_hour_example"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:attr/textColorPrimary"/>
 
         <TextView
             android:id="@+id/text_view_plan_supervisor"
@@ -42,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_plan_name"
             android:layout_toEndOf="@id/text_view_plan_hour"
-            android:text="@string/plan_supervisor_example" />
+            android:text="@string/plan_supervisor_example"
+            android:textColor="?android:attr/textColorPrimary"/>
 
         <TextView
             android:id="@+id/text_view_plan_room"
@@ -50,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_plan_supervisor"
             android:layout_toEndOf="@id/text_view_plan_hour"
-            android:text="@string/plan_room_example" />
+            android:text="@string/plan_room_example"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

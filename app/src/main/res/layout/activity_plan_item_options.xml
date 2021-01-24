@@ -7,6 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".PlanItemOptionsActivity">
 
@@ -17,14 +18,14 @@
         android:layout_marginTop="30dp"
         android:text="@string/pick_schedule"
         android:textAlignment="center"
-        android:textColor="@color/colorBlue"
+        android:textColor="?attr/colorPrimary"
         android:textSize="20sp" />
 
     <View
         style="@style/Divider.Horizontal"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorNero" />
+        android:backgroundTint="?attr/colorPrimaryDark" />
 
     <Button
         android:id="@+id/button_show_supervisor"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/colorOrange"
+        android:backgroundTint="?attr/colorAccent"
         android:gravity="center_horizontal|center_vertical"
         android:padding="12dp"
         android:text="@string/show_schedule_for_supervisor"
@@ -44,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/colorOrange"
+        android:backgroundTint="?attr/colorAccent"
         android:gravity="center_horizontal|center_vertical"
         android:padding="12dp"
         android:text="@string/show_schedule_for_course"
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/colorOrange"
+        android:backgroundTint="?attr/colorAccent"
         android:gravity="center_horizontal|center_vertical"
         android:padding="12dp"
         android:text="@string/show_schedule_for_room"
@@ -69,14 +70,14 @@
         android:layout_marginTop="30dp"
         android:text="@string/set_notification"
         android:textAlignment="center"
-        android:textColor="@color/colorBlue"
+        android:textColor="?attr/colorPrimary"
         android:textSize="20sp" />
 
     <View
         style="@style/Divider.Horizontal"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorNero" />
+        android:backgroundTint="?attr/colorPrimaryDark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -119,7 +120,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/colorNero"
+            android:backgroundTint="?attr/colorPrimaryDark"
             android:padding="12dp"
             android:text="@string/get_date_plan"
             app:cornerRadius="32dp" />
@@ -132,7 +133,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/colorNero"
+            android:backgroundTint="?attr/colorPrimaryDark"
             android:padding="12dp"
             android:text="@string/get_time_plan"
             app:cornerRadius="32dp"
@@ -146,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/colorOrange"
+        android:backgroundTint="?attr/colorAccent"
         android:padding="12dp"
         android:text="@string/set_notification_button"
         app:cornerRadius="32dp" />

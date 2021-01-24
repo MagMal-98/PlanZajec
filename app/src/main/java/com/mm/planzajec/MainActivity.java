@@ -41,6 +41,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
+        String color = preferences.getString("themeKey", "");
+        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
+        else getTheme().applyStyle(R.style.AppThemeBlue, true);
+
         setContentView(R.layout.activity_main);
         setTitle(getResources().getString(R.string.main_card));
 

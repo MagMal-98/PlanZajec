@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
     tools:context=".PickPlanFragment">
 
     <TextView
@@ -14,14 +15,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/select_your_plan"
-        android:textColor="@color/colorBlue"
+        android:textColor="?attr/colorPrimary"
         android:textSize="30sp" />
 
     <View
         style="@style/Divider.Horizontal"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorNero" />
+        android:backgroundTint="?attr/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/department_text"
@@ -114,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/colorOrange"
+        android:backgroundTint="?attr/colorAccent"
         android:text="@string/add_plan"
         app:cornerRadius="32dp"/>
 

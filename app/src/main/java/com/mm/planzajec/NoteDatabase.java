@@ -1,5 +1,4 @@
 package com.mm.planzajec;
-
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -16,7 +15,6 @@ import java.util.Calendar;
 public abstract class NoteDatabase extends RoomDatabase {
 
     private static NoteDatabase instance;
-
     public abstract NoteDao noteDao();
 
     public static synchronized NoteDatabase getInstance(Context context) {
@@ -39,8 +37,8 @@ public abstract class NoteDatabase extends RoomDatabase {
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private NoteDao noteDao;
 
+        private NoteDao noteDao;
         private PopulateDbAsyncTask(NoteDatabase db) {
             noteDao = db.noteDao();
         }
@@ -56,3 +54,5 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
     }
 }
+
+

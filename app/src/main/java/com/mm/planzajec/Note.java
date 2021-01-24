@@ -1,5 +1,4 @@
 package com.mm.planzajec;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -11,13 +10,9 @@ public class Note {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private String title;
-
     private String description;
-
     private String date;
-
 
     public Note(String title, String description, String date) {
         this.title = title;
@@ -44,8 +39,8 @@ public class Note {
     public String getDate() {
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime());
-
         return currentDate;
     }
-
 }
+
+

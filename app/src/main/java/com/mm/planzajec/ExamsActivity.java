@@ -1,5 +1,6 @@
 package com.mm.planzajec;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -7,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,6 +46,12 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
+        String color = preferences.getString("themeKey", "");
+        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
+        else getTheme().applyStyle(R.style.AppThemeBlue, true);
+
         setContentView(R.layout.activity_exams);
         setTitle(getResources().getString(R.string.exams_card));
 

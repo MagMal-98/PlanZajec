@@ -1,5 +1,4 @@
 package com.mm.planzajec;
-
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -27,3 +26,5 @@ public interface NoteDao {
     @Query("SELECT * FROM note_table ORDER BY date DESC")
     LiveData<List<Note>> getAllNotes();
 }
+
+

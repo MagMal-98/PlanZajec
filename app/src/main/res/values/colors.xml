@@ -7,4 +7,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorTransparentWhite">#cccccc</color>
     <color name="transparent">#EB000000</color>
+    <color name="colorRed">#C31331</color>
+    <color name="colorYellow">#F79E1B</color>
+    <color name="colorBeige">#CBB2AB</color>
 </resources>

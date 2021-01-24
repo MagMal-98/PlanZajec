@@ -1,6 +1,8 @@
 package com.mm.planzajec;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +37,12 @@ public class AddEditNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
+        String color = preferences.getString("themeKey", "");
+        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
+        else getTheme().applyStyle(R.style.AppThemeBlue, true);
+
         setContentView(R.layout.activity_add_note);
 
         editNoteTitle = findViewById(R.id.edit_text_title_note);
@@ -53,7 +61,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
             editNoteTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editNoteDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
         } else {
-            setTitle(getResources().getString(R.string.note_add_card));
+            setTitle(getResources().getString(R.string.note_edit_card));
         }
 
         Calendar calendar = Calendar.getInstance();
@@ -68,7 +76,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
         String date = dateNoteTextView.getText().toString();
 
         if (title.trim().isEmpty() || description.trim().isEmpty()) {
-            Toast.makeText(this, "Please insert a title and description", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.note_toast), Toast.LENGTH_SHORT).show();
             return;
         }
 
