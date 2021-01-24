@@ -82,6 +82,7 @@
     <string name="change_application_language"><b>ZMIEŃ JĘZYK APLIKACJI</b></string>
     <string name="set_language"><b>USTAW JĘZYK</b></string>
     <string name="change_application_theme"><b>ZMIEŃ MOTYW APLIKACJI</b></string>
-    <string name="set_theme"><b>USTAW MOTYW</b></string>
+    <string name="set_theme"><b>WŁĄCZ CIEMNY MOTYW</b></string>
+    <string name="set_theme_dark"><b>WYŁĄCZ CIEMNY MOTYW</b></string>
     <string name="enter_your_note">Dodaj treść notatki</string>
 </resources>

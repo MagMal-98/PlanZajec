@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor"
+    android:visibility="visible"
+    tools:context=".AddEditNoteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_notes"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:id="@+id/text_view_date_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textColor="?attr/colorAccent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:hint="@string/title"
+        android:textColorHint="?attr/colorPrimaryDark"
+        app:boxBackgroundMode="filled"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxStrokeColor="?attr/colorSecondary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_title_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/backgroundColor"
+            android:textSize="18sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <EditText
+        android:id="@+id/edit_text_description_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:inputType="textMultiLine"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:padding="16dp"
+        android:paddingTop="20dp"
+        android:hint="@string/enter_your_note"
+        android:textColorHint="?attr/colorPrimaryDark"
+        android:textSize="14sp"/>
+
+</LinearLayout>

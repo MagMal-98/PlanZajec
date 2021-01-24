@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AlarmActivityLesson">
+
+    <TextView
+        android:id="@+id/textViewHourSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="50sp"
+        android:text="Text view"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textViewLessonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorTurquoise"
+        android:textSize="30sp"
+        android:text="Text view"
+        android:layout_gravity="center"
+        tools:ignore="TextViewEdits"
+        android:justificationMode="inter_word"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textViewSupervisor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"
+        android:text="Text view"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textViewRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"
+        android:text="Text view"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/button_lesson_close"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/colorOrange"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/close"
+        android:padding="12dp"
+        app:cornerRadius="32dp" />
+
+</LinearLayout>

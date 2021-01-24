@@ -1,0 +1,30 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppThemeBlue" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorRed</item>
+        <item name="colorSecondary">@color/colorOrange</item>
+        <item name="colorAccent">@color/colorYellow</item>
+        <item name="colorPrimaryDark">@color/colorBeige</item>
+        <item name="android:textColorPrimary">@color/colorTransparentWhite</item>
+        <item name="android:textAppearanceButton">@color/colorWhite</item>
+        <item name="backgroundColor">@color/colorBackground</item>
+        <item name="background">@color/colorNero</item>
+        <item name="android:itemTextAppearance">@color/colorRed</item>
+    </style>
+
+    <style name="AlertTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name = "android:windowIsTranslucent">true</item>
+        <item name = "android:windowBackground">@color/transparent</item>
+        <item name = "android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="Divider.Horizontal" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+    </style>
+
+</resources>

@@ -27,8 +27,7 @@
     <string name="blue_theme">Blue</string>
 
     <string name="note_toast">Please insert a title and description</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    
     <string name="your_daily_college_schedule">Your daily college schedule</string>
     <string name="context_menu_options"><![CDATA[Context & menu options]]></string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -81,7 +80,6 @@
     <string name="change_application_language"><b>CHANGE APPLICATION LANGUAGE</b></string>
     <string name="set_language"><b>SET LANGUAGE</b></string>
     <string name="change_application_theme"><b>CHANGE APPLICATION THEME</b></string>
-    <string name="set_theme"><b>ENABLE DARK MODE</b></string>
-    <string name="set_theme_dark"><b>DISABLE DARK MODE</b></string>
+    <string name="set_theme"><b>SET THEME</b></string>
     <string name="enter_your_note">Enter your note</string>
 </resources>
