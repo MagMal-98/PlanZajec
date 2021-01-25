@@ -91,6 +91,7 @@
             android:layout_marginTop="30dp"
             android:layout_weight="0.5"
             android:hint="@string/set_date_plan"
+            android:textColorHint="@color/colorBeige"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -101,6 +102,7 @@
             android:layout_marginTop="30dp"
             android:layout_weight="0.5"
             android:hint="@string/set_time_plan"
+            android:textColorHint="@color/colorBeige"
             android:textAlignment="center"
             android:textSize="18sp"
 

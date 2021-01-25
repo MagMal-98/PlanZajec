@@ -51,6 +51,28 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        changeColor = findViewById(R.id.text_view_change_color_button);
+        changeColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("SettingsTheme", Activity.MODE_PRIVATE);
+                Boolean theme = preferences.getBoolean("DarkMode", false);
+                if (theme) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
+                    editor.putBoolean("DarkMode", false);
+                    editor.apply();
+                }
+                else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
+                    editor.putBoolean("DarkMode", true);
+                    editor.apply();
+                }
+            }
+
+        });
+
         changeLanguage = findViewById(R.id.text_view_change_language_button);
         changeLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,32 +106,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                         });
                 builder.create().show();
             }
-
-
         });
-
-        changeColor = findViewById(R.id.text_view_change_color_button);
-        changeColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences preferences = getSharedPreferences("SettingsTheme", Activity.MODE_PRIVATE);
-                Boolean theme = preferences.getBoolean("DarkMode", false);
-                if (theme) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
-                    editor.putBoolean("DarkMode", false);
-                    editor.apply();
-                }
-                else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
-                    editor.putBoolean("DarkMode", true);
-                    editor.apply();
-                }
-            }
-
-        });
-
     }
 
     private void setLocale(String language) {

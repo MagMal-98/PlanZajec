@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     android:singleLine="true"
     android:text="@string/select_an_option"
-    android:textColor="#808080" />
+    android:textColor="@color/colorBeige" />

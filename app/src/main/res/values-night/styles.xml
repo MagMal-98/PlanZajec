@@ -9,7 +9,7 @@
         <item name="android:textAppearanceButton">@color/colorWhite</item>
         <item name="backgroundColor">@color/colorBackground</item>
         <item name="background">@color/colorNero</item>
-        <item name="android:itemTextAppearance">@color/colorRed</item>
+
     </style>
 
     <style name="AlertTheme" parent="Theme.MaterialComponents.Light.NoActionBar">

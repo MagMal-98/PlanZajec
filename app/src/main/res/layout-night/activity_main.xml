@@ -68,7 +68,8 @@
         app:menu="@menu/drawer_menu"
         android:background="?attr/backgroundColor"
         app:itemTextColor="?android:attr/textColorPrimary"
-        app:itemIconTint="?attr/colorPrimary">
+        app:itemIconTint="?attr/colorPrimary"
+        >
 
     </com.google.android.material.navigation.NavigationView>
 
