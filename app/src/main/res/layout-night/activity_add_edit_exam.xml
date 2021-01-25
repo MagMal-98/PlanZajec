@@ -60,7 +60,6 @@
         android:backgroundTint="?attr/colorAccent"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/get_date_exam"
-        android:textColor="@color/colorBeige"
         android:padding="12dp"
         app:cornerRadius="32dp" />
 
