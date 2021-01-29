@@ -67,7 +67,6 @@ public class DayOfWeekFragment extends Fragment {
             }
         }
 
-
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -94,9 +93,6 @@ public class DayOfWeekFragment extends Fragment {
                     }
                 })
         );
-
         return v;
     }
-
-
 }

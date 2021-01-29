@@ -44,12 +44,6 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
-        String color = preferences.getString("themeKey", "");
-        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
-        else getTheme().applyStyle(R.style.AppThemeBlue, true);
-
         setContentView(R.layout.activity_notes);
         setTitle(getResources().getString(R.string.notes_card));
 
@@ -99,8 +93,8 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(NotesActivity.this);
-                builder.setMessage("Do you want to delete this Note?")
-                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                builder.setMessage(getResources().getString(R.string.notes_delete_dialog))
+                        .setNegativeButton(getResources().getString(R.string.cancel_dialog), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 overridePendingTransition(0, 0);
@@ -117,7 +111,7 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
                             }
                         })
                         .show();
-                Toast.makeText(NotesActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NotesActivity.this, getResources().getString(R.string.note_deleted), Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -194,12 +188,12 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
             Note note = new Note(title, description, date);
             noteViewModel.insert(note);
 
-            Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.note_saved), Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID, -1);
 
             if (id == -1) {
-                Toast.makeText(this, "Note can't be updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.note_cant_update), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -211,9 +205,9 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
             note.setId(id);
             noteViewModel.update(note);
 
-            Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.note_update), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Note not saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.note_not_saved), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -229,7 +223,7 @@ public class NotesActivity extends AppCompatActivity implements NavigationView.O
         switch (item.getItemId()) {
             case R.id.delete_all_notes:
                 noteViewModel.deleteAllNotes();
-                Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.note_all_deleted), Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

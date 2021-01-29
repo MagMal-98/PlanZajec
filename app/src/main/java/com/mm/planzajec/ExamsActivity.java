@@ -1,6 +1,5 @@
 package com.mm.planzajec;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -8,7 +7,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,12 +44,6 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
-        String color = preferences.getString("themeKey", "");
-        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
-        else getTheme().applyStyle(R.style.AppThemeBlue, true);
-
         setContentView(R.layout.activity_exams);
         setTitle(getResources().getString(R.string.exams_card));
 
@@ -101,8 +93,8 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ExamsActivity.this);
-                builder.setMessage("Do you want to delete this Exam notification?")
-                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                builder.setMessage(getResources().getString(R.string.exam_delete_dialog))
+                        .setNegativeButton(getResources().getString(R.string.cancel_dialog), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 overridePendingTransition(0, 0);
@@ -119,7 +111,7 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
                             }
                         })
                         .show();
-                Toast.makeText(ExamsActivity.this, "Exam notification deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExamsActivity.this, getResources().getString(R.string.exam_delete), Toast.LENGTH_SHORT).show();
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 Intent intent = new Intent(getApplicationContext(), AlarmReceiverExam.class);
@@ -207,12 +199,12 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
             Exam exam = new Exam(exam_title, exam_date, exam_time, exam_timeToNotify, exam_notification_id);
             examViewModel.insert(exam);
 
-            Toast.makeText(this, "Exam notification saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.exam_saved), Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_EXAM_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditExamActivity.EXTRA_EXAM_ID, -1);
 
             if (id == -1) {
-                Toast.makeText(this, "Exam notification can't be updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.exam_not_updated), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -226,9 +218,9 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
             exam.setExam_id(id);
             examViewModel.update(exam);
 
-            Toast.makeText(this, "Exam notification updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.exam_updated), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Exam notification not saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.exam_not_saved), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -256,7 +248,7 @@ public class ExamsActivity extends AppCompatActivity implements NavigationView.O
         switch (item.getItemId()) {
             case R.id.delete_all_exams:
                 examViewModel.deleteAllExams();
-                Toast.makeText(this, "All exam notifications deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.exam_all_delete), Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -35,8 +35,6 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
 
     @Override
     public final View getView(int position, View convertView, ViewGroup parent) {
-        // This provides the View for the Selected Item in the Spinner, not
-        // the dropdown (unless dropdownView is not set).
         if (position == 0) {
             return getNothingSelectedView(parent);
         }
@@ -115,8 +113,6 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
 
     @Override
     public boolean isEnabled(int position) {
-        return position != 0; // Don't allow the 'nothing selected'
-        // item to be picked.
+        return position != 0;
     }
-
 }

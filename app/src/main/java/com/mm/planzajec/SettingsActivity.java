@@ -1,5 +1,15 @@
 package com.mm.planzajec;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -8,19 +18,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -62,8 +59,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                     SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
                     editor.putBoolean("DarkMode", false);
                     editor.apply();
-                }
-                else {
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     SharedPreferences.Editor editor = getSharedPreferences("SettingsTheme", MODE_PRIVATE).edit();
                     editor.putBoolean("DarkMode", true);
@@ -80,19 +76,19 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 final String[] languageList = {"English", "Polski"};
 
                 int checkedItem;
-                if (langSelected){
+                if (langSelected) {
                     checkedItem = 0;
                 } else checkedItem = 1;
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
-                builder.setTitle("Select a language")
+                builder.setTitle(getResources().getString(R.string.settings_lang_dialog))
                         .setSingleChoiceItems(languageList, checkedItem, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if (languageList[which].equals("English")){
+                                if (languageList[which].equals("English")) {
                                     setLocale("en");
                                 }
-                                if (languageList[which].equals("Polski")){
+                                if (languageList[which].equals("Polski")) {
                                     setLocale("pl");
                                 }
                             }
@@ -101,6 +97,12 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 recreate();
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(getResources().getString(R.string.cancel_dialog), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                             }
                         });
@@ -120,7 +122,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         editor.apply();
     }
 
-    public void loadLocale(){
+    public void loadLocale() {
         SharedPreferences preferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = preferences.getString("My_Lang", "");
         setLocale(language);

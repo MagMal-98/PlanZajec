@@ -27,6 +27,34 @@
 
     <string name="note_toast">Proszę wprowadzić tytuł oraz treść notatki</string>
 
+    <string name="toast_insert_date_time">Proszę wprowadzić datę oraz godzinę</string>
+    <string name="toast_insert_date_time_title">Proszę wprowadzić tytuł, datę oraz godzinę</string>
+    <string name="toast_insert_title">Proszę wprowadzić tytuł</string>
+    <string name="toast_insert_date">Proszę wprowadzić datę</string>
+    <string name="toast_insert_time">Proszę wprowadzić godzinę</string>
+
+    <string name="exam_delete_dialog">Czy chcesz usunąć powiadomienie o egzaminie?</string>
+    <string name="exam_delete">Powiadomienie o egzaminie usunięte</string>
+    <string name="cancel_dialog">Anuluj</string>
+
+    <string name="exam_saved">Powiadomienie o egzaminie zostało zapisane</string>
+    <string name="exam_not_updated">Powiadomienie nie może zostać zaktualizowane</string>
+    <string name="exam_updated">Powiadomienie zostało zaktualizowane</string>
+    <string name="exam_not_saved">Powiadomienie nie zostało zapisane</string>
+    <string name="exam_all_delete">Usunięto wszystkie powiadomienia</string>
+
+    <string name="notes_delete_dialog">Czy chcesz usunąć notatkę?</string>
+    <string name="note_deleted">Notatka usunięta</string>
+    <string name="note_saved">Notatka nie została zapisana</string>
+    <string name="note_cant_update">Notatka nie może zostać zaktualizowana</string>
+    <string name="note_update">Notatka zaktualizowana</string>
+    <string name="note_not_saved">Notatka nie została zapisana</string>
+    <string name="note_all_deleted">Usunięto wszystkie notatki</string>
+
+    <string name="lesson_notification_set">"Ustawiono powiadomienie o zajęciach"</string>
+
+    <string name="settings_lang_dialog">Proszę wybrać język</string>
+
     <string name="red_theme">Czerwony</string>
     <string name="blue_theme">Niebieski</string>
 

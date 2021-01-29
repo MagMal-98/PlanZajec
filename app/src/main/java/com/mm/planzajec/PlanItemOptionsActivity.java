@@ -1,13 +1,11 @@
 package com.mm.planzajec;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -44,12 +42,6 @@ public class PlanItemOptionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
-        String color = preferences.getString("themeKey", "");
-        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
-        else getTheme().applyStyle(R.style.AppThemeBlue, true);
-
         setContentView(R.layout.activity_plan_item_options);
 
         buttonSupervisorSchedule = findViewById(R.id.button_show_supervisor);
@@ -121,15 +113,15 @@ public class PlanItemOptionsActivity extends AppCompatActivity {
                 String lesson_date = textViewLessonDate.getText().toString();
                 String lesson_time = textViewLessonTime.getText().toString();
                 if (savedDate == null) {
-                    Toast.makeText(getApplicationContext(), "Please insert a date and time", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.toast_insert_date_time), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (lesson_date.trim().isEmpty() && savedDate != null) {
-                    Toast.makeText(getApplicationContext(), "Please insert a date", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.toast_insert_date), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (lesson_time.trim().isEmpty() && savedDate != null) {
-                    Toast.makeText(getApplicationContext(), "Please insert time", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.toast_insert_time), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -150,7 +142,7 @@ public class PlanItemOptionsActivity extends AppCompatActivity {
                         intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMilliseconds, pendingIntent);
                 finish();
-                Toast.makeText(getApplicationContext(), "Notification is set", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.lesson_notification_set), Toast.LENGTH_SHORT).show();
             }
         });
     }

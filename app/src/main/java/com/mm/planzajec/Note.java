@@ -1,4 +1,5 @@
 package com.mm.planzajec;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

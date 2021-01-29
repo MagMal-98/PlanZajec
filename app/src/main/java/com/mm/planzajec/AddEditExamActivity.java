@@ -7,7 +7,6 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -60,11 +59,6 @@ public class AddEditExamActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
-        String color = preferences.getString("themeKey", "");
-        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
-        else getTheme().applyStyle(R.style.AppThemeBlue, true);
 
         setContentView(R.layout.activity_add_edit_exam);
 
@@ -127,23 +121,23 @@ public class AddEditExamActivity extends AppCompatActivity {
             editDate = stringToDate(edit, "d MMM yyyy HH:mm");
         }
         if (savedDate == null && editDate == null) {
-            Toast.makeText(this, "Please insert a date and time", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_insert_date_time), Toast.LENGTH_SHORT).show();
             return;
         }
         if (exam_title.trim().isEmpty() && savedDate == null && editDate == null) {
-            Toast.makeText(this, "Please insert a title, date and time", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_insert_date_time_title), Toast.LENGTH_SHORT).show();
             return;
         }
         if (exam_title.trim().isEmpty()) {
-            Toast.makeText(this, "Please insert a title", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_insert_title), Toast.LENGTH_SHORT).show();
             return;
         }
         if (exam_date.trim().isEmpty() && savedDate != null) {
-            Toast.makeText(this, "Please insert a date", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_insert_date), Toast.LENGTH_SHORT).show();
             return;
         }
         if (exam_time.trim().isEmpty() && savedDate != null) {
-            Toast.makeText(this, "Please insert time", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_insert_time), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -247,40 +241,40 @@ public class AddEditExamActivity extends AppCompatActivity {
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                int HOUR, MINUTE;
-                HOUR = hourOfDay;
-                MINUTE = minute;
-                String time = HOUR + ":" + MINUTE;
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        int HOUR, MINUTE;
+                        HOUR = hourOfDay;
+                        MINUTE = minute;
+                        String time = HOUR + ":" + MINUTE;
 
-                if (calendar1 == null) {
-                    calendar2 = Calendar.getInstance();
-                    calendar2.set(Calendar.YEAR, 2020);
-                    calendar2.set(Calendar.MONTH, 10);
-                    calendar2.set(Calendar.DAY_OF_MONTH, 30);
-                    calendar2.set(Calendar.HOUR_OF_DAY, HOUR);
-                    calendar2.set(Calendar.MINUTE, MINUTE);
-                } else {
-                    calendar1.set(Calendar.HOUR_OF_DAY, HOUR);
-                    calendar1.set(Calendar.MINUTE, MINUTE);
-                    if (edit_flag) {
-                        editDate = calendar1.getTime();
-                    } else {
-                        savedDate = calendar1.getTime();
+                        if (calendar1 == null) {
+                            calendar2 = Calendar.getInstance();
+                            calendar2.set(Calendar.YEAR, 2020);
+                            calendar2.set(Calendar.MONTH, 10);
+                            calendar2.set(Calendar.DAY_OF_MONTH, 30);
+                            calendar2.set(Calendar.HOUR_OF_DAY, HOUR);
+                            calendar2.set(Calendar.MINUTE, MINUTE);
+                        } else {
+                            calendar1.set(Calendar.HOUR_OF_DAY, HOUR);
+                            calendar1.set(Calendar.MINUTE, MINUTE);
+                            if (edit_flag) {
+                                editDate = calendar1.getTime();
+                            } else {
+                                savedDate = calendar1.getTime();
+                            }
+                        }
+
+                        SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
+                        try {
+                            Date date = f24Hours.parse(time);
+                            textViewExamTime.setText(f24Hours.format(date));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                     }
-                }
-
-                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
-                try {
-                    Date date = f24Hours.parse(time);
-                    textViewExamTime.setText(f24Hours.format(date));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, 12, 0, true);
+                }, 12, 0, true);
         timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         timePickerDialog.show();
     }

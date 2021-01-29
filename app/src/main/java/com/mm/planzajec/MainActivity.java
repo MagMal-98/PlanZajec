@@ -1,16 +1,12 @@
 package com.mm.planzajec;
 
-import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +25,6 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,12 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences preferences = getSharedPreferences("Theme", Activity.MODE_PRIVATE);
-        String color = preferences.getString("themeKey", "");
-        if (color.equals("red")) getTheme().applyStyle(R.style.AppThemeRed, true);
-        else getTheme().applyStyle(R.style.AppThemeBlue, true);
-
         setContentView(R.layout.activity_main);
         setTitle(getResources().getString(R.string.main_card));
 
